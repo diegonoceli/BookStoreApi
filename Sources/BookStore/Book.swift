@@ -6,6 +6,11 @@ struct BookListResponse: Codable {
 
 struct BookInfo: Codable {
     let volumeInfo: BookDetails
+    let saleInfo: SaleInfo
+}
+
+struct SaleInfo: Codable {
+    let buyLink: URL?
 }
 
 struct BookDetails: Codable {
@@ -13,14 +18,13 @@ struct BookDetails: Codable {
     let authors: [String]?
     let description: String?
     let imageLinks: ImageLinks?
-    let buyLink: URL?
 }
 
 struct ImageLinks: Codable {
     let thumbnail: URL?
 }
 
-public struct Book : Hashable{
+public struct Book : Codable,Hashable{
     public let title: String
     public let authors: [String]
     public let description: String
@@ -33,7 +37,7 @@ extension BookInfo {
     func toBook() -> Book {
         let details = self.volumeInfo
         let thumbnailURL = details.imageLinks?.thumbnail
-        let buyLink = details.buyLink
+        let buyLink = self.saleInfo.buyLink
         
         return Book(
             title: details.title,
