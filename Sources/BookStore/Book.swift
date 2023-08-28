@@ -20,12 +20,13 @@ struct ImageLinks: Codable {
     let thumbnail: URL?
 }
 
-public struct Book {
-    public let title: String
-    public let authors: [String]?
-    public let description: String?
-    public let thumbnailURL: URL?
-    public let buyLink: URL?
+struct Book : Hashable{
+    let title: String
+    let authors: [String]
+    let description: String
+    let thumbnailURL: URL?
+    let buyLinkURL: URL?
+    var isFavorite: Bool
 }
 
 extension BookInfo {
