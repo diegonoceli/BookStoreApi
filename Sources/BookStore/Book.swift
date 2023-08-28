@@ -40,7 +40,8 @@ extension BookInfo {
             authors: details.authors ?? [],
             description: details.description ?? "",
             thumbnailURL: thumbnailURL,
-            buyLink: buyLink
+            buyLinkURL: buyLink,
+            isFavorite: false
         )
     }
 }
