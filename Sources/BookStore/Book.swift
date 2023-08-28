@@ -45,7 +45,7 @@ extension BookInfo {
             description: details.description ?? "",
             thumbnailURL: thumbnailURL,
             buyLinkURL: buyLink,
-            isFavorite: false
+            isFavorite: UserDefaults.standard.bool(forKey: details.title)
         )
     }
 }
