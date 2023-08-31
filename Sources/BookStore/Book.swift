@@ -1,3 +1,10 @@
+//
+//  ContentView.swift
+//  BookStoreApplication
+//
+//  Created by Diego Noceli on 26/08/23.
+//
+
 import Foundation
 
 struct BookListResponse: Codable {
